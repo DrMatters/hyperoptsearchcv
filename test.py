@@ -24,7 +24,7 @@ max_evals = 3
 rf_hyper = HyperoptSearchCV(estimator=RandomForestClassifier(n_jobs=-1, random_state=42),
                             search_space=rf_space, param_types=rf_cast, n_iter=max_evals,
                             scoring=scoring, cv=StratifiedKFold(n_splits=3),
-                            print_log=text_log)
+                            verbose=text_log)
 
 iris = datasets.load_iris()
 X, y = iris.data, iris.target
