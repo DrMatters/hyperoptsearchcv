@@ -1,7 +1,7 @@
 from HyperoptSearchCV import HyperoptSearchCV
 from sklearn.ensemble import RandomForestClassifier
 from sklearn import datasets
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, StratifiedKFold
 from hyperopt import hp
 
 rf_space = {
@@ -17,12 +17,14 @@ rf_cast = {
     # parameter can be omitted if cast is not required
     # 'min_samples_leaf': None,
 }
-metric = 'accuracy'
+scoring = 'accuracy'
 text_log = True
 max_evals = 3
 
-rf_hyper = HyperoptSearchCV(RandomForestClassifier(n_jobs=-1, random_state=42), rf_space,
-                            rf_cast, metric, text_log, max_evals)
+rf_hyper = HyperoptSearchCV(estimator=RandomForestClassifier(n_jobs=-1, random_state=42),
+                            search_space=rf_space, param_types=rf_cast, n_iter=max_evals,
+                            scoring=scoring, cv=StratifiedKFold(n_splits=3),
+                            print_log=text_log)
 
 iris = datasets.load_iris()
 X, y = iris.data, iris.target
