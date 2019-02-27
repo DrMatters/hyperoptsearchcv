@@ -2,7 +2,7 @@
 
 > Wrapper for hyperopt to use it with sklearn pipelines
 
-### Example (Optional)
+### Example
 [Create search space](https://github.com/hyperopt/hyperopt/wiki/FMin) just as in original hyperopt 
 ```python
 search_space = {
