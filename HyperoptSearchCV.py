@@ -7,18 +7,18 @@ import sklearn
 class HyperoptSearchCV(sklearn.base.BaseEstimator):
     def __init__(self, estimator, search_space, param_types={},
                  n_iter=25, scoring='accuracy', cv=None,
-                 verbose=False, seed=42):
+                 verbose=1, seed=42):
         """ Constructor for model to be optimized using hyperopt
 
         Keyword arguments:
-            :param BaseEstimator estimator: -- model with sklearns conventional interface (fit(), predict())
+            :param object estimator: -- model with sklearns conventional interface (fit(), predict())
             :param dict search_space: -- dictionary with search space of parameters for hyperopt
-            param_types -- dictionary with types to cast, `None` - for no casting
-            n_iter -- integer max number of evaluations
-            scoring -- string or function
-            cv -- int, cross-validation generator or an iterable, optional
-            print_log -- boolean, True for printing log
-            seed -- seed for hyperopt `tpe` optimization function
+            :param dict param_types:-- dictionary with types to cast, `None` - for no casting
+            :param int n_iter: -- integer max number of evaluations
+            :param object scoring:-- string or function
+            :param int cv: -- int, cross-validation generator or an iterable, optional
+            :param bool verbose: -- boolean, True for printing log
+            :param int seed: -- seed for hyperopt `tpe` optimization function
         """
         self.estimator = estimator
         self.search_space = search_space
