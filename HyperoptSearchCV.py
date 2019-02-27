@@ -1,6 +1,6 @@
 from hyperopt import tpe, space_eval
 from hyperopt.fmin import fmin
-import numpy as np
+from numpy.random import RandomState
 import sklearn
 
 
@@ -77,7 +77,7 @@ class HyperoptSearchCV(sklearn.base.BaseEstimator):
                            space=self.search_space,
                            algo=tpe.suggest,
                            max_evals=self.n_iter,
-                           rstate=np.random.RandomState(42))
+                           rstate=RandomState(42))
         evaluated = space_eval(self.search_space, best_params)
         if self.verbose:
             print('best params: ', evaluated)

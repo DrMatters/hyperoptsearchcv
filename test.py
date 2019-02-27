@@ -1,4 +1,4 @@
-from HyperoptSearchCV import HyperoptSearchCV
+from hyperoptsearchcv import HyperoptSearchCV
 from sklearn.ensemble import RandomForestClassifier
 from sklearn import datasets
 from sklearn.model_selection import train_test_split, StratifiedKFold
