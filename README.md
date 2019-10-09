@@ -3,7 +3,7 @@
 > Wrapper for hyperopt to use it with sklearn pipelines
 
 ### Example
-[Create search space](https://github.com/hyperopt/hyperopt/wiki/FMin) just as in original hyperopt 
+[Describe a search space](https://github.com/hyperopt/hyperopt/wiki/FMin#22-a-search-space-example-scikit-learn) just as in original hyperopt 
 ```python
 search_space = {
     'n_estimators': hp.quniform('n_estimators', 25, 1525, 50),
@@ -12,7 +12,7 @@ search_space = {
 }
 ```
 Specify types of parameters from search space
-* WARNING: hp.quniform always return float type and need to be casted to int if estimator requires it!
+* WARNING: hp.quniform always return float type and need to be casted to int if estimator's argument requires it!
 
 ```
 param_cast = {
